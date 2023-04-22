@@ -10,6 +10,7 @@ const Demo = () => {
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
   const [allArticles, setArticles] = useState([]);
+  const [copied, setCopied] = useState("")
 
   // Load data from localStorage on mount
   useEffect(() => {
@@ -44,6 +45,12 @@ const Demo = () => {
     }
 
   };
+
+  const handleCopy = (copyUrl) => {
+    setCopied(copyUrl);
+    navigator.clipboard.writeText(copyUrl);
+    setTimeout(() => setCopied(false), 3000)
+  }
   return (
     
     <section className='mt-16 w-full max-w-xl'>
@@ -72,7 +79,11 @@ const Demo = () => {
               onClick ={() => setArticle(item)}
               className='link_card'
               >
-                <img src={copy} alt='copy' className='w-[40] h-[40] object-contain' />
+                <div className='copy_btn'
+                onClick={() => handleCopy(item.url)}>
+                <img src={copied === item.url ? tick : copy}
+                 alt='copy' className='w-[40] h-[40] object-contain' />
+                </div>
                 <p className='flex-1 font-satoshi text-blue-700
                 font-medium text-sm truncate'>
                   {item.url}
