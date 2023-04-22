@@ -1,11 +1,11 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
+import logo2 from '../assets/logo2.svg'
 const Hero = () => {
   return (
    <header className='w-full flex justify-center items-center flex-col'>
     <nav className='flex justify-between items-center w-full mb-10 pt-3'>
-      <img src = {logo} alt = 'logo' className = 'p-6 w-23 object-contain pt-8' />
-      <button type = "button" className='black_btn' onClick={() => window.open('https://github.com/anniedavid13/Summarizer-WebApp')} > Github  </button>
+      <img src = {logo2} alt = 'logo' className = 'p-6 w-23 object-contain pt-8' />
+      <button type = "button" className='black_btn pt-8' onClick={() => window.open('https://github.com/anniedavid13/Summarizer-WebApp')} > Github  </button>
     </nav>
     <h1 className='head_text items-center'> 
     Summarize your text in a few clicks! <br />
